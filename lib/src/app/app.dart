@@ -10,10 +10,13 @@ class ContactListApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  HomeView(),
       theme: lightThemeData(),
       darkTheme: darkThemeData(),
       themeMode: ThemeMode.system,
+      initialRoute: HomeView.routName,
+      routes: {
+        HomeView.routName: (context)=> const HomeView()
+      },
     );
   }
 }

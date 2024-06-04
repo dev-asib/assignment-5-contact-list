@@ -6,6 +6,7 @@ import 'package:contact_list/src/view/contact/add_contact_view.dart';
 import 'package:contact_list/src/view/contact/contact_list_view.dart';
 
 class HomeView extends StatefulWidget {
+  static const routName = "/";
   const HomeView({super.key});
 
   @override
