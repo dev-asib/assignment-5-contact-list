@@ -1,3 +1,4 @@
+import 'package:contact_list/src/utils/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:contact_list/src/controller/contact_controller.dart';
 import 'package:contact_list/src/model/entities/contact.dart';
@@ -29,15 +30,30 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Contact List'),
+      backgroundColor: AppColors.white,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80),
+        child: Container(
+          color: AppColors.black,
+          child: AppBar(
+            title: const Text('Contact List'),
+          ),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          AddContactView(
-            onAddContact: _addContact,
+
+          ColoredBox(
+            color: AppColors.white,
+            child: AddContactView(
+              onAddContact: _addContact,
+              nameValidation: _contactController.validateName,
+              numberValidation: _contactController.validateNumber,
+            ),
           ),
+
+
           Expanded(
             flex: 3,
             child: ContactListView(
@@ -45,6 +61,7 @@ class _HomeViewState extends State<HomeView> {
               onDeleteContact: _deleteContact,
             ),
           ),
+
         ],
       ),
     );

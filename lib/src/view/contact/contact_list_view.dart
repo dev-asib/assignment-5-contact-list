@@ -36,6 +36,7 @@ class ContactListView extends StatelessWidget {
             leading: const Icon(
               Icons.person,
               color: AppColors.brown,
+              size: 35,
             ),
             title: Text(
               contact.name,
@@ -50,6 +51,7 @@ class ContactListView extends StatelessWidget {
               icon: const Icon(
                 Icons.phone,
                 color: AppColors.blue,
+                size: 35,
               ),
             ),
           ),

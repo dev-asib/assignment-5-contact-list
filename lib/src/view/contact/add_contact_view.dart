@@ -5,9 +5,13 @@ class AddContactView extends StatefulWidget {
   const AddContactView({
     super.key,
     required this.onAddContact,
+    required this.nameValidation,
+    required this.numberValidation,
   });
 
   final Function(Contact) onAddContact;
+  final String? Function(String?) nameValidation;
+  final String? Function(String?) numberValidation;
 
   @override
   _AddContactViewState createState() => _AddContactViewState();
@@ -34,14 +38,7 @@ class _AddContactViewState extends State<AddContactView> {
                 hintText: "Name",
                 labelText: "Name",
               ),
-              validator: (String? nameValue) {
-                if (nameValue == null || nameValue.trim().isEmpty) {
-                  return "Enter a valid name.";
-                } if(nameValue.length>4 == true){
-                  return "Name length can't be less than 4.";
-                }
-                return null;
-              },
+              validator: widget.nameValidation,
             ),
             const SizedBox(height: 8),
             TextFormField(
@@ -52,15 +49,7 @@ class _AddContactViewState extends State<AddContactView> {
                 hintText: "Number",
                 labelText: "Number",
               ),
-              validator: (String? numberValue) {
-                if (numberValue == null || numberValue.trim().isEmpty) {
-                  return "Enter a valid number.";
-                }
-                if(numberValue.length>11 || numberValue.length<11){
-                  return "Number can't be less than or greater than 11";
-                }
-                return null;
-              },
+              validator: widget.numberValidation,
             ),
             const SizedBox(height: 16),
             ElevatedButton(
