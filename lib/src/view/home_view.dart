@@ -30,7 +30,6 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80),
         child: Container(

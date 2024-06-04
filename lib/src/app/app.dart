@@ -11,7 +11,9 @@ class ContactListApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home:  HomeView(),
-      theme: buildLightThemeData(),
+      theme: lightThemeData(),
+      darkTheme: darkThemeData(),
+      themeMode: ThemeMode.system,
     );
   }
 }
